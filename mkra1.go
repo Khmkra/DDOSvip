@@ -1,5 +1,5 @@
 /**
- Super DDoS Created by ZOXC OFC
+  DDoS
 **/
 
 package main
