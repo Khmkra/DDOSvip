@@ -17,7 +17,7 @@ import concurrent.futures
 import time
 import base64, requests, sys
 import requests
-import webbrowser
+
 
 import (
 	"encoding/json"
