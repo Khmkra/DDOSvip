@@ -7,7 +7,7 @@ import os
 import json
 import gzip
 import requests
-from time import sleep
+
 import random
 import concurrent.futures
 import time
