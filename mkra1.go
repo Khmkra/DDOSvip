@@ -15,7 +15,7 @@ import (
 	"net/url"
 	"time"
 
-    "github.com/gnames/announcer/term"
+    
 )
 
 func main() {
