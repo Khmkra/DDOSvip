@@ -6,13 +6,12 @@
 
 package main
 import websocket
-import os
 import json
 import gzip
 import requests
 
 import random
-import time
+
 
 import requests
 
