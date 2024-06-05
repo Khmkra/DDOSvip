@@ -30,7 +30,7 @@ func main() {
 	var data url.Values
 
 	if *attackUrl != "" {
-
+           
 		if *_data != "" {
 			_body := getData(*method, *_data)
 			data = _body
@@ -39,6 +39,7 @@ func main() {
 		rand.Seed(time.Now().UnixNano())
 		for i := 0; i < *count; i++ {
 			if i%4 == 0 {
+				38;5;235m
 				fmt.Println("ddos Attack  :", i, "ល្អ:", completeCount, "CAT😼:", errorCount)
 			}
 			go startAttack(*attackUrl, *method, data)
