@@ -18,16 +18,8 @@ import (
     
 )
 
-func main() {
-    red := term.Colors.Red
-    boldWhite := term.Colors.Bold + term.Colors.White
 
-    if err := term.EnableColor(os.Stdout); err != nil {
-        log.Fatal(err)
-    }
 
-    fmt.Println(red("This text is red"), boldWhite("This text is bold white"))
-}
 
 
 a8 = '''[38;5;235m'''
