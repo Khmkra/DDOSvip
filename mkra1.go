@@ -45,7 +45,7 @@ func main() {
 		rand.Seed(time.Now().UnixNano())
 		for i := 0; i < *count; i++ {
 			if i%4 == 0 {
-				a8 = '''[38;5;235m'''
+				
 
 				fmt.Println("ddos Attack  :", i, "ល្អ:", completeCount, "CAT😼:", errorCount)
 			}
