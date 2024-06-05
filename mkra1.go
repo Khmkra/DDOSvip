@@ -1,18 +1,20 @@
 /**
   DDoS
 **/
-a7 = '''[38;5;228m'''
-a7 = '''[38;5;13m'''
-G = '''[1;32m'''
-R = '''[1;31m'''
-L = '''[1;33m'''
-C = '''[1;97m'''
-B = '''[2;36m'''
-Y = '''[1;34m'''
-C = '''[1;97m'''
-X = ''''''
-G = '''[1;32m'''
-R = '''[1;31m'''
+import websocket
+import ssl
+import os
+import json
+import gzip
+import requests
+from time import sleep
+import random
+import concurrent.futures
+import time
+import base64, requests, sys
+import requests
+import webbrowser
+
 
 package main
 
