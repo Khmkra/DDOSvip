@@ -6,16 +6,14 @@
 
 package main
 import websocket
-import ssl
 import os
 import json
 import gzip
 import requests
 
 import random
-import concurrent.futures
 import time
-import base64, requests, sys
+
 import requests
 
 
