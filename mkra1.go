@@ -4,16 +4,6 @@
 
 
 
-package main
-import websocket
-import json
-import gzip
-import requests
-
-import random
-
-
-import requests
 
 
 import (
