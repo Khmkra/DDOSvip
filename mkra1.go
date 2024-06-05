@@ -14,6 +14,12 @@ import (
 	"net/url"
 	"time"
 )
+var (
+	host      = ""
+	port      = "80"
+	page      = ""
+	mode      = ""
+	abcd      = 
 
 var completeCount = 0
 var errorCount = 0
