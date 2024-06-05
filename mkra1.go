@@ -6,9 +6,14 @@
 package main
 
 import (
-    "fmt"
-    "log"
-    "os"
+    	"encoding/json"
+	"flag"
+	"fmt"
+	"io/ioutil"
+	"math/rand"
+	"net/http"
+	"net/url"
+	"time"
 
     "github.com/gnames/announcer/term"
 )
