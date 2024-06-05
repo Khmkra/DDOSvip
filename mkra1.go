@@ -19,14 +19,8 @@ import (
 
 	
 
-var completeCount = 0
-var errorCount = 0
-var (
-	host      = ""
-	port      = "80"
-	page      = ""
-	mode      = ""
-	abcd      = 
+var completeCount = 1
+var errorCount = 1
 
 type any interface{}
 
