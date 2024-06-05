@@ -22,7 +22,7 @@ import (
 
 
 
-a8 = '''[38;5;235m'''
+
 
 var completeCount = 1
 var errorCount = 1
