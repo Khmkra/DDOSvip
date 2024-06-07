@@ -120,12 +120,12 @@ console.log(`
 `)
 console.log(`[😼] Target: `+ process.argv[2])
 console.log(`[😼] Time: `+ process.argv[3])
-console.log(`[😼] Rate: `+ process.argv[4])
-console.log(`[😼 Thread: ` + process.argv[5])
-console.log(`[@Lintar] Mode: ` + process.argv[7])
-console.log(`[😼] Request: GET`)
-console.log(`[😼] Methods: LOD`)
-console.log(`[😼] Methods DDoS By Lintar`)
+console.log(`[m] Rate: `+ process.argv[4])
+console.log(`[ Thread: ` + process.argv[5])
+console.log(`[m] Mode: ` + process.argv[7])
+console.log(`[m] Request: GET`)
+console.log(`[m] Methods: LOD`)
+console.log(`[m] Methods DDoS By Lintar`)
 
     const refers = [
 "http://anonymouse.org/cgi-bin/anon-www.cgi/",
