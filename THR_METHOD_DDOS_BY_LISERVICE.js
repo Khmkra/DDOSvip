@@ -30,7 +30,7 @@ var colors = require("colors");
 var file = path.basename(fileName);
 
 if (process.argv.length < 7) {
-    console.log(`@Lintar/n Usage: node LOD.js <url> <time> <requests> <threads> <proxy> <bypass/flood>\nExample: node LOD https://target.com 120 8 2 proxy.txt bypass`);
+    console.log(`m/n Usage: node LOD.js <url> <time> <requests> <threads> <proxy> <bypass/flood>\nExample: node LOD https://target.com 120 8 2 proxy.txt bypass`);
     process.exit();
 }
 
@@ -118,8 +118,8 @@ console.log(`
            ╚══╦═════════════════════════════════════════╦══╝
               ╚═════════════════════════════════════════╝
 `)
-console.log(`[😼] Target: `+ process.argv[2])
-console.log(`[😼] Time: `+ process.argv[3])
+console.log(`[m] Target: `+ process.argv[2])
+console.log(`[m] Time: `+ process.argv[3])
 console.log(`[m] Rate: `+ process.argv[4])
 console.log(`[ Thread: ` + process.argv[5])
 console.log(`[m] Mode: ` + process.argv[7])
