@@ -189,7 +189,7 @@ func flood() {
 			s, err = net.Dial("tcp", addr)
 		}
 		if err != nil {
-			fmt.Println("Connection timed out ") //When showing this message, it means ur ip got blocked or the target server down.
+			fmt.Println("\033[35m Connection timed out ") //When showing this message, it means ur ip got blocked or the target server down.
 		} else {
 			for i := 0; i < 100; i++ {
 				request := ""
